@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckBox from 'react-native-checkbox';
+import CheckBox from 'react-native-modest-checkbox'
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -12,23 +12,20 @@ export default class SignUpNotifs extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-          <Text style={styles.title}>What Kind of Notifications do you Want? Select all that apply. </Text>
-          <CheckBox
-                style={{flex: 1, padding: 10}}
-                onClick={()=>this.onClick(data)}
-                isChecked={data.checked}
-                leftText='Push Notifications'
-            />;
+          <Text style={styles.title}>What notifications do you want? Select all that apply. </Text>
             <CheckBox
-                label='Text'
-                checked={false}
-                onChange={(checked) => console.log('I am checked', checked)}
-             />
-             <CheckBox
-                 label='Email'
-                 checked={false}
-                 onChange={(checked) => console.log('I am checked', checked)}
-              />
+            label='Push Notifications'
+            onChange={(checked) => console.log('Checked!')}
+            />
+            <CheckBox
+            label='Text'
+            onChange={(checked) => console.log('Checked!')}
+            />
+            <CheckBox
+            label='Email'
+            onChange={(checked) => console.log('Checked!')}
+            />
+
         </View>
       );
     }
@@ -40,13 +37,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
   title: {
       fontSize: 30,
       fontWeight: 'bold',
-      height: 50,
   },
   text_field: {
     backgroundColor: '#eeeeee',
