@@ -1,12 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import Create_Profile from './Create_Profile.js'
+import SignUpProfile from './SignUpProfile.js'
+import SignUpBanking from './SignUpBanking.js'
+import SignUpNotifs from './SignUpNotifs.js'
+
+
 
 export default class App extends React.Component {
   render() {
     return (
-      <Create_Profile />
+      <SignUpProfile />
     );
   }
 }
