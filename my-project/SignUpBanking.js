@@ -66,7 +66,7 @@ export default class SignUpBanking extends React.Component {
           <Button
               title="Next"
               onPress={() =>
-              this.props.navigation.navigate('Notifications')
+              this.props.navigation.navigate('Wheel')
               }
           />
         </View>

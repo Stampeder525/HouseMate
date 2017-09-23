@@ -7,6 +7,7 @@ import { StackNavigator } from 'react-navigation';
 import SignUpProfile from './SignUpProfile.js';
 import SignUpBanking from './SignUpBanking.js';
 import SignUpNotifs from './SignUpNotifs.js';
+import Wheel from './Wheel.js';
 import ConfigWheel from './ConfigWheel.js';
 
 
@@ -44,11 +45,17 @@ const styles = StyleSheet.create({
 
 
 const AppNav = StackNavigator({
+
+  Profile: { screen: SignUpProfile },
+  Banking: { screen: SignUpBanking },
+  Notifications: { screen: SignUpNotifs }
     App: { screen: App },
   Profile: { screen: SignUpProfile },
   Banking: { screen: SignUpBanking },
   Notifications: { screen: SignUpNotifs },
-  ConfigWheel: { screen: ConfigWheel }
+  ConfigWheel: { screen: ConfigWheel },
+   Wheel: { screen: Wheel }
+
 });
 
 export default AppNav;
