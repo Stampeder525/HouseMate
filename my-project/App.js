@@ -5,6 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import SignUpProfile from './SignUpProfile.js';
 import SignUpBanking from './SignUpBanking.js';
 import SignUpNotifs from './SignUpNotifs.js';
+import Wheel from './Wheel.js';
 
 class App extends React.Component {
   render() {
@@ -24,9 +25,10 @@ const styles = StyleSheet.create({
 });
 
 const AppNav = StackNavigator({
+  WheelScreen: { screen: Wheel },
   Profile: { screen: SignUpProfile },
   Banking: { screen: SignUpBanking },
-  Notifications: { screen: SignUpNotifs },
+  Notifications: { screen: SignUpNotifs }
 });
 
 export default AppNav;

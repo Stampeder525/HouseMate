@@ -6,7 +6,7 @@ import { Button } from 'react-native';
 import SignUpBanking from './SignUpBanking.js'
 
 export class SignUpProfile extends React.Component {
- 
+
   render() {
     return (
       <View style={styles.container}>
