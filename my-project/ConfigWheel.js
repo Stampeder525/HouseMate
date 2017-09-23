@@ -5,33 +5,32 @@ import { StackNavigator } from 'react-navigation';
 
 import { Button } from 'react-native';
 
-export default class SignUpNotifs extends React.Component {
+export default class ConfigWheel extends React.Component {
     static navigationOptions = {
-      title: 'SignUpNotifs',
+      title: 'ConfigWheel',
     };
     render() {
       return (
-        <View style={styles.container}>
-          <Text style={styles.title}>What notifications do you want? Select all that apply. </Text>
-            <CheckBox
+          <View style={styles.container}>
+            <View style={styles.subcontainer}>
+              <Text style={styles.title}>Add a person</Text>
+                <CheckBox
                 label='Push Notifications'
                 onChange={(checked) => console.log('Checked!')}
-            />
-            <CheckBox
+                />
+                <CheckBox
                 label='Text'
                 onChange={(checked) => console.log('Checked!')}
-            />
-            <CheckBox
+                />
+                <CheckBox
                 label='Email'
                 onChange={(checked) => console.log('Checked!')}
-            />
-            <Button
-                title="Next"
-                onPress={() =>
-                this.props.navigation.navigate('ConfigWheel')
-                }
-            />
+                />
 
+            </View>
+            <View style={styles.subcontainer}>
+
+            </View>
         </View>
       );
     }
@@ -42,9 +41,15 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     backgroundColor: '#fff',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+  },
+  subcontainer: {
+      backgroundColor: '#fff',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+      flex: 1,
+      borderBottomColor: 'black',
+      borderBottomWidth: 1,
   },
   title: {
       fontSize: 30,
