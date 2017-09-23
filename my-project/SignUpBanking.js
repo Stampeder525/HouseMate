@@ -5,12 +5,11 @@ import {
 } from 'react-navigation';
 
 import SignUpProfile from './SignUpProfile.js'
+import { Button } from 'react-native';
 
 
-export class SignUpBanking extends React.Component {
-    static navigationOptions = {
-      title: 'SignUpBanking',
-    };
+export default class SignUpBanking extends React.Component {
+
     render() {
       return (
         <View style={styles.container}>
@@ -42,6 +41,12 @@ export class SignUpBanking extends React.Component {
           />
           <TextInput
             style={styles.text_field}
+            placeholder="Address Line 2"
+            onChangeText={(text) => this.setState({text})}
+            underlineColorAndroid = 'rgba(0,0,0,0)'
+          />
+          <TextInput
+            style={styles.text_field}
             placeholder="City"
             onChangeText={(text) => this.setState({text})}
             underlineColorAndroid = 'rgba(0,0,0,0)'
@@ -61,7 +66,7 @@ export class SignUpBanking extends React.Component {
           <Button
               title="Next"
               onPress={() =>
-              navigate('Notifications')
+              this.props.navigation.navigate('Notifications')
               }
           />
         </View>
@@ -94,5 +99,3 @@ const styles = StyleSheet.create({
     flex: 0,
   },
 });
-
-export default SignUpBanking;

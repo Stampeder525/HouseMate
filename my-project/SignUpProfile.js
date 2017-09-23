@@ -5,16 +5,8 @@ import { Button } from 'react-native';
 
 import SignUpBanking from './SignUpBanking.js'
 
-export const AppNav = StackNavigator({
-  Profile: { screen: SignUpProfile },
-  Banking: { screen: SignUpBanking },
-  // Notifications: { screen: SignUpNotifs },
-});
-
 export class SignUpProfile extends React.Component {
-  static navigationOptions = {
-    title: 'SignUpProfile',
-  };
+ 
   render() {
     return (
       <View style={styles.container}>

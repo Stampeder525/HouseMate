@@ -6,8 +6,9 @@ import {
 } from 'react-navigation';
 
 import SignUpBanking from './SignUpBanking.js'
+import { Button } from 'react-native';
 
-export class SignUpNotifs extends React.Component {
+export default class SignUpNotifs extends React.Component {
     static navigationOptions = {
       title: 'SignUpNotifs',
     };
@@ -75,5 +76,3 @@ const styles = StyleSheet.create({
     flex: 0,
   },
 });
-
-export default SignUpBanking;
