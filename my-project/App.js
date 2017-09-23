@@ -10,8 +10,6 @@ import SignUpNotifs from './SignUpNotifs.js';
 import ConfigWheel from './ConfigWheel.js';
 
 
-
-
 class App extends React.Component {
     static navigationOptions = {
       title: 'Welcome',

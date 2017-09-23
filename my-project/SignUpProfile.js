@@ -13,6 +13,7 @@ export class SignUpProfile extends React.Component {
       super(props);
       this.state = {
           name: '',
+          username: '',
           email: '',
           password: '',
           confirmPassword: ''
@@ -26,6 +27,12 @@ export class SignUpProfile extends React.Component {
           style={styles.text_field}
           placeholder="Name"
           onChangeText={(text) => {this.setState({name: text})}}
+          underlineColorAndroid = 'rgba(0,0,0,0)'
+        />
+        <TextInput
+          style={styles.text_field}
+          placeholder="Username"
+          onChangeText={(text) => {this.setState({username: text})}}
           underlineColorAndroid = 'rgba(0,0,0,0)'
         />
         <TextInput
