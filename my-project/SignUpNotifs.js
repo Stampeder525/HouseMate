@@ -1,11 +1,8 @@
 import React from 'react';
-import { ListOfCheckbox } from 'react-native-checkbox-list'; //Not sure if installation worked
+import CheckBox from 'react-native-checkbox';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
 
-import SignUpBanking from './SignUpBanking.js'
 import { Button } from 'react-native';
 
 export default class SignUpNotifs extends React.Component {
@@ -16,36 +13,22 @@ export default class SignUpNotifs extends React.Component {
       return (
         <View style={styles.container}>
           <Text style={styles.title}>What Kind of Notifications do you Want? Select all that apply. </Text>
-          <ListOfCheckbox arrayCheckBox={[
-              {
-                  label: 'Push Notifications',
-                  labelLeft: true,
-                  value: 'Push Notifications',
-                  styleCheckBox: { width: 30, height: 30, borderWidth: 2, borderColor:'#000' },
-                  styleLabel: { color: '#000', fontSize: 20 }
-              },
-              {
-                  label: 'Text',
-                  labelLeft: true,
-                  value: 'Text',
-                  styleCheckBox: { width: 30, height: 30, borderWidth: 2, borderColor:'#000' },
-                  styleLabel: { color: '#000', fontSize: 20 }
-              },
-              {
-                  label: 'Email',
-                  labelLeft: true,
-                  value: 'Push Notifications',
-                  styleCheckBox: { width: 30, height: 30, borderWidth: 2, borderColor:'#000' },
-                  styleLabel: { color: '#000', fontSize: 20 }
-              }
-          ]}
-          />
-          <Button
-              title="Finish"
-              onPress={() =>
-              navigate('Banking') //change to chore wheel selection
-              }
-          />
+          <CheckBox
+                style={{flex: 1, padding: 10}}
+                onClick={()=>this.onClick(data)}
+                isChecked={data.checked}
+                leftText='Push Notifications'
+            />;
+            <CheckBox
+                label='Text'
+                checked={false}
+                onChange={(checked) => console.log('I am checked', checked)}
+             />
+             <CheckBox
+                 label='Email'
+                 checked={false}
+                 onChange={(checked) => console.log('I am checked', checked)}
+              />
         </View>
       );
     }
