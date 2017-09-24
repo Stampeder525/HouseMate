@@ -4,69 +4,55 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
-import SignUpProfile from './SignUpProfile.js'
+import SignUpProfile from './SignUpProfile.js';
 import { Button } from 'react-native';
+import linkAccount from './billing.js';
 
 
 export default class SignUpBanking extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+        "code": 0,
+        "message": "string",
+        "objectCreated": {
+          "_id": "string",
+          "type": "Credit Card",
+          "nickname": "string",
+          "rewards": 0,
+          "balance": 500,
+          "account_number": "string",
+          "customer_id": "string"
+      }
+    };
+    this.createLinkAccountPost = this.createLinkAccountPost.bind(this)
+  }
+  createLinkAccountPost() {
+    linkAccount(this.state)
+    this.props.navigation.navigate('Notifications')
+    
+  }
     render() {
       return (
         <View style={styles.container}>
           <Text style={styles.title}>Billing Information</Text>
           <TextInput
             style={styles.text_field}
-            placeholder="Card Number"
-            onChangeText={(text) => this.setState({text})}
+            placeholder="Customer ID"
+            onChangeText={(text) => this.setState({customer_id: text})}
             underlineColorAndroid = 'rgba(0,0,0,0)'
           />
           <TextInput
             style={styles.text_field}
-            placeholder="Exp. Date"
-            onChangeText={(text) => this.setState({text})}
-            underlineColorAndroid = 'rgba(0,0,0,0)'
-          />
-          <TextInput
-            style={styles.text_field}
-            placeholder="CVC"
-            onChangeText={(text) => this.setState({text})}
-            underlineColorAndroid = 'rgba(0,0,0,0)'
-          />
-          <Text style={styles.title}>Billing Address</Text>
-          <TextInput
-            style={styles.text_field}
-            placeholder="Address"
-            onChangeText={(text) => this.setState({text})}
-            underlineColorAndroid = 'rgba(0,0,0,0)'
-          />
-          <TextInput
-            style={styles.text_field}
-            placeholder="Address Line 2"
-            onChangeText={(text) => this.setState({text})}
-            underlineColorAndroid = 'rgba(0,0,0,0)'
-          />
-          <TextInput
-            style={styles.text_field}
-            placeholder="City"
-            onChangeText={(text) => this.setState({text})}
-            underlineColorAndroid = 'rgba(0,0,0,0)'
-          />
-          <TextInput
-            style={styles.text_field}
-            placeholder="State"
-            onChangeText={(text) => this.setState({text})}
-            underlineColorAndroid = 'rgba(0,0,0,0)'
-          />
-          <TextInput
-            style={styles.text_field}
-            placeholder="ZIP"
-            onChangeText={(text) => this.setState({text})}
+            placeholder="Account Number"
+            onChangeText={(text) => this.setState({account_number: text})}
             underlineColorAndroid = 'rgba(0,0,0,0)'
           />
           <Button
               title="Next"
-              onPress={() =>
-              this.props.navigation.navigate('Notifications')
+              onPress={
+                this.createLinkAccountPost
+                
               }
           />
         </View>
