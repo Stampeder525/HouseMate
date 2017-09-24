@@ -68,24 +68,28 @@ export default class ConfigWheel extends React.Component {
                     <TextInput
                       style={styles.text_field}
                       placeholder="Task #1"
+                      value='cook meal'
                       onChangeText={(text) => this.setState({task1: text})}
                       underlineColorAndroid = 'rgba(0,0,0,0)'
                     />
                     <TextInput
                       style={styles.text_field}
                       placeholder="Task #2"
+                      value='do dishes'
                       onChangeText={(text) => this.setState({task2: text})}
                       underlineColorAndroid = 'rgba(0,0,0,0)'
                     />
                     <TextInput
                       style={styles.text_field}
                       placeholder="Task #3"
+                      value='garbage'
                       onChangeText={(text) => this.setState({task3: text})}
                       underlineColorAndroid = 'rgba(0,0,0,0)'
                     />
                     <TextInput
                       style={styles.text_field}
                       placeholder="Task #4"
+                      value='run errands'
                       onChangeText={(text) => this.setState({task4: text})}
                       underlineColorAndroid = 'rgba(0,0,0,0)'
                     />

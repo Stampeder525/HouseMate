@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Picker, KeyboardAvoidingView } from 'react-native';
 import {
   StackNavigator,
 } from 'react-navigation';
@@ -9,12 +9,19 @@ import { Button } from 'react-native';
 
 export default class SignUpBanking extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            language: 'Capital One'
+        };
+    }
     render() {
       return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={20}>
           <Text style={styles.title}>Billing Information</Text>
           <Picker
             selectedValue={this.state.language}
+            style={{ width: '90%' }}
             onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
             <Picker.Item label="Capital One" value="Capital One" />
             <Picker.Item label="Citibank" value="Citibank" />
@@ -42,12 +49,12 @@ export default class SignUpBanking extends React.Component {
           />
           <Button
               title="Next"
-              onPress={
+              onPress={ () =>
                 this.props.navigation.navigate('Notifications')
-                
+
               }
           />
-        </View>
+        </KeyboardAvoidingView>
       );
     }
 }
