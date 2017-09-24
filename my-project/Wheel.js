@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Button } from 'react-native';
+import Camera from 'react-native-camera';
 
 import SignUpProfile from './SignUpProfile.js'
 import Roulette from 'react-native-roulette'
@@ -29,9 +30,9 @@ class Wheel extends React.Component {
                         }}
                     />
                 </View>
-                <Text style={styles.chore}>cook meal</Text>
+                <Text style={styles.chore}>Vacuum</Text>
                 <View style={styles.hcontainer}>
-                    <Text style={styles.leftChore}>do dishes</Text>
+                    <Text style={styles.leftChore}>Do dishes</Text>
                     <Roulette rouletteRotate={0}
                     enableUserRotate = {true} >
                         <Image
@@ -59,13 +60,30 @@ class Wheel extends React.Component {
                                 resizeMode="contain"
                                 />
                     </Roulette>
-                    <Text style={styles.rightChore}> garbage </Text>
+                    <Text style={styles.rightChore}> Dispose garbage </Text>
                 </View>
-                <Text style={styles.chore}>run errands</Text>
+                <Text style={styles.chore}>Clean counter</Text>
+                <Camera
+                    ref={(cam) => {
+                        this.camera = cam;
+                    }}
+                    style={styles.preview}
+                    aspect={Camera.constants.Aspect.fill}>
+                    <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+                </Camera>
             </View>
         )
     }
+    takePicture() {
+        const options = {};
+        //options.location = ...
+        this.camera.capture({metadata: options})
+          .then((data) => console.log(data))
+          .catch(err => console.error(err));
+    }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -75,6 +93,19 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    margin: 40
   },
   notifications: {
       display: 'flex',
