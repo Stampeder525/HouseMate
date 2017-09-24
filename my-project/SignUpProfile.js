@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, KeyboardAvoidingView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Button } from 'react-native';
 
@@ -8,7 +8,7 @@ import SignUpBanking from './SignUpBanking.js'
 var api = require('./AccountCreation.js')
 
 
-export class SignUpProfile extends React.Component {
+class SignUpProfile extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -21,7 +21,12 @@ export class SignUpProfile extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={20}>
+          <Image
+            style={{flex:1}}
+            source={require('./logo.png')}
+            resizeMode="contain"
+            />
         <Text style={styles.title}>Make a Profile</Text>
         <TextInput
           style={styles.text_field}
@@ -51,7 +56,6 @@ export class SignUpProfile extends React.Component {
         />
         <TextInput
           style={styles.text_field}
-
           placeholder="Confirm Password"
           onChangeText={(text) => this.setState({confirmPassword: text})}
           underlineColorAndroid = 'rgba(0,0,0,0)'
@@ -64,7 +68,7 @@ export class SignUpProfile extends React.Component {
                 api.createAccount(this.state)
             }}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -81,9 +85,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-      fontSize: 30,
-      fontWeight: 'bold',
+      fontSize: 20,
       height: 50,
+      fontFamily: 'Avenir',
   },
   text_field: {
     backgroundColor: '#eeeeee',
@@ -94,6 +98,7 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     fontSize: 18,
     flex: 0,
+    fontFamily: 'Avenir',
   },
 });
 

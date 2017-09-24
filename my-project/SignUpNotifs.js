@@ -44,11 +44,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    padding: 20,
   },
   title: {
       fontSize: 30,
-      fontWeight: 'bold',
+      fontFamily: 'Avenir',
   },
   text_field: {
     backgroundColor: '#eeeeee',
@@ -59,5 +60,6 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     fontSize: 18,
     flex: 0,
+    fontFamily: 'Avenir',
   },
 });

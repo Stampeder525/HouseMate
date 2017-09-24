@@ -6,7 +6,7 @@ import { Button } from 'react-native';
 import WheelReact from 'wheel-react';
 import SignUpProfile from './SignUpProfile.js'
 
-export class Wheel extends React.Component {
+class Wheel extends React.Component {
   constructor(props){
       super(props);
       this.state = {
@@ -35,17 +35,18 @@ export class Wheel extends React.Component {
         }
       });
     }
-  render() {
-    let styles = {
-    height: '400px',
-    fontSize: '34px',
-    textAlign: 'center'
-  }
-    return (
-      <div {...WheelReact.events} tabIndex="1" style={styles}>
-        {this.state.content}
-      </div>
-    );
-      }
+    render() {
+        let styles = {
+            height: '400px',
+            fontSize: '34px',
+            textAlign: 'center'
+        }
+        return (
+          <div {...WheelReact.events} tabIndex="1" style={styles}>
+            {this.state.content}
+          </div>
+        )
+    }
+}
 
-    };
+export default Wheel

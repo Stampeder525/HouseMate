@@ -26,6 +26,12 @@ export default class ConfigWheel extends React.Component {
                 label='Email'
                 onChange={(checked) => console.log('Checked!')}
                 />
+                <Button
+                    title="Next"
+                    onPress={() =>
+                    this.props.navigation.navigate('Wheel')
+                }
+                />
 
             </View>
             <View style={styles.subcontainer}>

@@ -66,7 +66,7 @@ export default class SignUpBanking extends React.Component {
           <Button
               title="Next"
               onPress={() =>
-              this.props.navigation.navigate('Wheel')
+              this.props.navigation.navigate('Notifications')
               }
           />
         </View>
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
   },
   title: {
       fontSize: 30,
-      fontWeight: 'bold',
       height: 50,
+      fontFamily: 'Avenir',
   },
   text_field: {
     backgroundColor: '#eeeeee',
@@ -97,5 +97,6 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     fontSize: 18,
     flex: 0,
+    fontFamily: 'Avenir',
   },
 });
