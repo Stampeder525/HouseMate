@@ -9,6 +9,7 @@ import SignUpBanking from './SignUpBanking.js';
 import SignUpNotifs from './SignUpNotifs.js';
 import ConfigWheel from './ConfigWheel.js';
 import Wheel from './Wheel.js';
+import NotificationsPanel from './NotificationsPanel';
 
 
 class App extends React.Component {
@@ -51,8 +52,8 @@ const AppNav = StackNavigator({
   Banking: { screen: SignUpBanking },
   Notifications: { screen: SignUpNotifs },
   ConfigWheel: { screen: ConfigWheel },
-   Wheel: { screen: Wheel }
-
+   Wheel: { screen: Wheel },
+   NotifPanel: { screen: NotificationsPanel },
 });
 
 export default AppNav;

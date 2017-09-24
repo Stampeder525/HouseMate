@@ -7,7 +7,7 @@ import { Button, Image } from 'react-native';
 
 export default class ConfigWheel extends React.Component {
     static navigationOptions = {
-      title: 'ConfigWheel',
+      title: 'Configure Wheel',
     };
     constructor(props) {
         super(props);
