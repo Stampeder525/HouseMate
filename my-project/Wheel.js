@@ -27,6 +27,7 @@ class Wheel extends React.Component {
                         title= {this.state.taskCompleted ? "Task Complete!" : "Mark my task completed"}
                         onPress= {() => {
                             this.setState({taskCompleted : !this.state.taskCompleted})
+
                         }}
                     />
                 </View>
@@ -63,14 +64,14 @@ class Wheel extends React.Component {
                     <Text style={styles.rightChore}> Dispose garbage </Text>
                 </View>
                 <Text style={styles.chore}>Clean counter</Text>
-                <Camera
+                return({taskCompleted ? <Camera
                     ref={(cam) => {
                         this.camera = cam;
                     }}
                     style={styles.preview}
                     aspect={Camera.constants.Aspect.fill}>
                     <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-                </Camera>
+                </Camera> : null}
             </View>
         )
     }
