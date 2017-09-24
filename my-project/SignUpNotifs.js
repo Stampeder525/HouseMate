@@ -14,16 +14,22 @@ export default class SignUpNotifs extends React.Component {
         <View style={styles.container}>
           <Text style={styles.title}>What notifications do you want? Select all that apply. </Text>
             <CheckBox
-            label='Push Notifications'
-            onChange={(checked) => console.log('Checked!')}
+                label='Push Notifications'
+                onChange={(checked) => console.log('Checked!')}
             />
             <CheckBox
-            label='Text'
-            onChange={(checked) => console.log('Checked!')}
+                label='Text'
+                onChange={(checked) => console.log('Checked!')}
             />
             <CheckBox
-            label='Email'
-            onChange={(checked) => console.log('Checked!')}
+                label='Email'
+                onChange={(checked) => console.log('Checked!')}
+            />
+            <Button
+                title="Next"
+                onPress={() =>
+                this.props.navigation.navigate('ConfigWheel')
+                }
             />
 
         </View>
@@ -38,11 +44,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    padding: 20,
   },
   title: {
       fontSize: 30,
-      fontWeight: 'bold',
+      fontFamily: 'Avenir',
   },
   text_field: {
     backgroundColor: '#eeeeee',
@@ -53,5 +60,6 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     fontSize: 18,
     flex: 0,
+    fontFamily: 'Avenir',
   },
 });

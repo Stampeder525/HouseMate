@@ -1,54 +1,80 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, KeyboardAvoidingView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Button } from 'react-native';
 
 import SignUpBanking from './SignUpBanking.js'
 
-export class SignUpProfile extends React.Component {
- 
+var api = require('./AccountCreation.js')
+
+
+class SignUpProfile extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          name: '',
+          username: '',
+          email: '',
+          password: '',
+          confirmPassword: ''
+      };
+  }
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={20}>
+          <Image
+            style={{flex:1}}
+            source={require('./logo.png')}
+            resizeMode="contain"
+            />
         <Text style={styles.title}>Make a Profile</Text>
         <TextInput
           style={styles.text_field}
           placeholder="Name"
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => {this.setState({name: text})}}
+          underlineColorAndroid = 'rgba(0,0,0,0)'
+        />
+        <TextInput
+          style={styles.text_field}
+          placeholder="Username"
+          onChangeText={(text) => {this.setState({username: text})}}
           underlineColorAndroid = 'rgba(0,0,0,0)'
         />
         <TextInput
           style={styles.text_field}
           placeholder="Email"
-          onChangeText={(text) => this.setState({text})}
+          value={this.state.email}
+          onChangeText={(text) => {this.setState({email: text})}}
           underlineColorAndroid = 'rgba(0,0,0,0)'
         />
         <TextInput
           style={styles.text_field}
           placeholder="Password"
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => this.setState({password: text})}
           underlineColorAndroid = 'rgba(0,0,0,0)'
           secureTextEntry={true}
         />
         <TextInput
           style={styles.text_field}
-
           placeholder="Confirm Password"
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => this.setState({confirmPassword: text})}
           underlineColorAndroid = 'rgba(0,0,0,0)'
           secureTextEntry={true}
         />
         <Button
             title="Next"
-            onPress={() =>
-            this.props.navigation.navigate('Banking')
-            }
+            onPress= {() => {
+                if (this.state.username == "") {
+                    return
+                }
+                this.props.navigation.navigate('Banking')
+                api.createAccount(this.state)
+            }}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
-
 
 
 
@@ -62,9 +88,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-      fontSize: 30,
-      fontWeight: 'bold',
+      fontSize: 20,
       height: 50,
+      fontFamily: 'Avenir',
   },
   text_field: {
     backgroundColor: '#eeeeee',
@@ -75,6 +101,7 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     fontSize: 18,
     flex: 0,
+    fontFamily: 'Avenir',
   },
 });
 
