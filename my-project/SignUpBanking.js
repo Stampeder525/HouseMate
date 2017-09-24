@@ -6,41 +6,33 @@ import {
 
 import SignUpProfile from './SignUpProfile.js';
 import { Button } from 'react-native';
-import linkAccount from './billing.js';
-
 
 export default class SignUpBanking extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        "code": 0,
-        "message": "string",
-        "objectCreated": {
-          "_id": "string",
-          "type": "Credit Card",
-          "nickname": "string",
-          "rewards": 0,
-          "balance": 500,
-          "account_number": "string",
-          "customer_id": "string"
-      }
-    };
-    this.createLinkAccountPost = this.createLinkAccountPost.bind(this)
-  }
-  createLinkAccountPost() {
-    linkAccount(this.state)
-    this.props.navigation.navigate('Notifications')
-    
-  }
+
     render() {
       return (
         <View style={styles.container}>
           <Text style={styles.title}>Billing Information</Text>
+          <Picker
+            selectedValue={this.state.language}
+            onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+            <Picker.Item label="Capital One" value="Capital One" />
+            <Picker.Item label="Citibank" value="Citibank" />
+            <Picker.Item label="Bank of America" value="Bank of America" />
+            <Picker.Item label="Wells Fargo" value="Wells Fargo" />
+          </Picker>
           <TextInput
             style={styles.text_field}
             placeholder="Customer ID"
             onChangeText={(text) => this.setState({customer_id: text})}
             underlineColorAndroid = 'rgba(0,0,0,0)'
+          />
+          <TextInput
+            style={styles.text_field}
+            placeholder="Password"
+            onChangeText={(text) => this.setState({customer_id: text})}
+            underlineColorAndroid = 'rgba(0,0,0,0)'
+            secureTextEntry={true}
           />
           <TextInput
             style={styles.text_field}
@@ -51,7 +43,7 @@ export default class SignUpBanking extends React.Component {
           <Button
               title="Next"
               onPress={
-                this.createLinkAccountPost
+                this.props.navigation.navigate('Notifications')
                 
               }
           />
