@@ -64,6 +64,9 @@ class SignUpProfile extends React.Component {
         <Button
             title="Next"
             onPress= {() => {
+                if (this.state.username == "") {
+                    return
+                }
                 this.props.navigation.navigate('Banking')
                 api.createAccount(this.state)
             }}
